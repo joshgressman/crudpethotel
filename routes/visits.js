@@ -4,14 +4,14 @@ var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/petHotel'
 
 router.get('/', function(req, res) {
-  console.log("GET /owners/");
+  console.log("GET /visits/");
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log("Database connction failed");
       res.sendStatus(500);
     }
 
-    client.query('SELECT * FROM owners', function(err, result) {
+    client.query('SELECT * FROM visits', function(err, result) {
       done();
 
       if(err) {

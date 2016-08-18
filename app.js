@@ -11,10 +11,12 @@ var bodyParser = require('body-parser');
 // Our routes
 var owners = require('./routes/owners');
 var pets = require('./routes/pets');
+var visit = require('./routes/visits');
 
 app.use(bodyParser.urlencoded({ extended: true }));   //Must come after route variables
 app.use('/owners', owners);
 app.use('/pets', pets);
+app.use('/visits', visit);
 
 //================================================================
 //                  ROUTE CONNECTION & USE
