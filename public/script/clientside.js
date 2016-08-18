@@ -1,34 +1,31 @@
 $(document).ready(function() {
     getOwners();
     //event listener
-    $("#registerButton").on("submit", submitOwners);
-    console.log("button works");
-
-
+    $("#registerButton").on("click", submitOwners);
 });
 
 function submitOwners() {
     event.preventDefault();
 
+    console.log("POSTING");
+
     var owners = {};
-    var fields = $(this).serializedArray();
-    fields.forEach(function(field) {
-        owners[field.name] = field.value;
+    $.each($('#ownerForm').serializeArray(), function (i, field) {
+      owners[field.name] = field.value;
     });
-    console.log(owners);
 
     $.ajax({
         type: "POST",
         url: "/owners",
         data: owners,
         success: function() {
-            $("#ownerForm").empty();
-            getOwners();
-            console.log("Something happens.");
+            console.log("POST /owners Succeded.");
+            // $("#ownerForm").empty();
+            // getOwners();
         },
 
         error: function(response) {
-            console.log("POST /did not work");
+            console.log("POST /owners failed");
         },
     });
 };
@@ -39,12 +36,9 @@ function getOwners() {
         url: "/owners",
         success: function(owners) {
             //append to DOM
-            console.log(owners);
             owners.forEach(function(owner) {
-                $(".ownerList").append('<option class = "owner">' + owner.first_name + " " + owner.last_name  + '</option>')
-                console.log(owner);
+                $(".ownerList").append('<option class = "owner">' + owner.first_name + " " + owner.last_name  + '</option>');
             });
-
         },
         error: function(response) {
             console.log("GET /did not work");
