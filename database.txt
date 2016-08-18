@@ -1,0 +1,21 @@
+--create OWNER table
+CREATE TABLE owners(
+    id SERIAL PRIMARY KEY,
+    first_name varchar(255),
+    last_name varchar(255)
+);
+--create PET table
+CREATE TABLE pets(
+    id SERIAL PRIMARY KEY,
+    color varchar (255),
+    name varchar (255),
+    breed varchar (255),
+    owner_id int REFERENCES owners
+);
+--create VISITS table
+CREATE TABLE visits(
+    id SERIAL PRIMARY KEY,
+    check_in date,
+    check_out date,
+    pet_id int REFERENCES pets
+);
