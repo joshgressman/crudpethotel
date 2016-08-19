@@ -1,42 +1,56 @@
 <!DOCTYPE = html>
 <html>
+
 <head>
-  <title>Crud Pet Hotel</title>
-  <script src= "/vendor/jquery.js"></script>
-  <script src= "/script/clientside.js"></script>
+    <title>Crud Pet Hotel</title>
+    <script src="/vendor/jquery.js"></script>
+    <script src="/script/clientside.js"></script>
 
 
 </head>
+
 <body>
-  <h1>Owners and Pets</h1>
-  <h2>Owner Registration</h2>
-  <form id="ownerForm">
-    <label for= "firstName">First Name</label>
-      <input type = "text" id = "firstName" name="firstName" />
+    <h1>Owners and Pets</h1>
+    <h2>Owner Registration</h2>
+    <form id="ownerForm">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" required>
 
-    <label for = "lastName">Last Name</label>
-      <input type="text" id="lastName" name="lastName" />
-      <button id="registerButton">Register</button>
-  </form>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <button id="registerButton">Register</button>
+    </form>
 
-<form id="petForm">
+    <form id="petForm">
 
-<select class = "ownerList">
+        <select class="ownerList">
 
-</select>
-  <label for="petName">Pet</label>
-    <input type = "text" id = "petName" name="petName" />
-  <label for ="breedName">Breed</label>
-    <input type = "text" id = "breedName" name="breedName" />
-  <label for ="color">Color</label>
-    <input type = "text" id = "color" name="color" />
+        </select>
+        <label for="petName">Pet</label>
+        <input type="text" id="petName" name="petName" />
+        <label for="breedName">Breed</label>
+        <input type="text" id="breedName" name="breedName" />
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color" />
 
-  <button id = "addPet">Add Pet</button>
-</form>
+        <button id="addPet">Add Pet</button>
+    </form>
 
     <h1>Pet Roster</h1>
-    <table id= "tableContainer">
-<!-- songs retrieved from server -->
+    <table id="tableContainer">
+        <!-- songs retrieved from server -->
+        <tr>
+            <th>Owner</th>
+            <th>Pet</th>
+            <th>Breed</th>
+            <th>Color</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Check In/Out</th>
+        </tr>
+
+
     </table>
-  </body>
-  </html>
+</body>
+
+</html>
